@@ -31,7 +31,7 @@ return [
     'disks' => [
         'resumes' => [
             'driver' => 'local',
-            'root' => storage_path('app/resumes'),
+            'root' => '/home/hr1.jetlougetravels-ph.com/careers-hr1.jetlougetravels-ph.com/storage/resumes',
             'url' => env('APP_URL') . '/storage/resumes',
             'visibility' => 'public',
         ],
