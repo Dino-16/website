@@ -31,10 +31,11 @@ return [
     'disks' => [
         'resumes' => [
             'driver' => 'local',
-            'root' => '/home/hr1.jetlougetravels-ph.com/careers-hr1.jetlougetravels-ph.com/storage/resumes',
-            'url' => env('APP_URL') . '/storage/resumes',
+            'root' => storage_path('app/public/resume'),
+            'url' => env('APP_URL') . '/storage/resume',
             'visibility' => 'public',
         ],
+
 
         'local' => [
             'driver' => 'local',

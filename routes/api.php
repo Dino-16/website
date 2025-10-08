@@ -10,7 +10,6 @@ Route::get('/resume/{id}', function ($id) {
 
         $file = $application->applicant_resume_file;
 
-        // Convert URL to relative path if needed
         if (filter_var($file, FILTER_VALIDATE_URL)) {
             $parsedUrl = parse_url($file, PHP_URL_PATH);
             $file = ltrim(str_replace('/storage/', '', $parsedUrl), '/');
