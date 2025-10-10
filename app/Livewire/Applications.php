@@ -62,7 +62,7 @@ class Applications extends Component
             'applicant_phone'       => $this->applicantPhone,
             'applicant_email'       => $this->applicantEmail,
             'applicant_resume_file' => $applicantResumeUrl,
-            'status' => 'Pending',
+            'status' => 'Not Filtered',
             'agreed_to_terms' => $this->agreedToTerms,
         ]);
 

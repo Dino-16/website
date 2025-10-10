@@ -1,13 +1,18 @@
 <div @class(['p-5'])>
-    {{-- Title --}}
-    <h2 @class(['mb-5'])>
-        Application Form - <span @style(['color: #213A5C;'])>{{ $job->job_title }}</span>
-    </h2>
 
-    {{-- Success --}}
-    <x-alert-success />
+    <a @class(['nav-link', 'text-secondary']) href="{{ route('jobs') }}"><i class="bi bi-arrow-left-circle me-2"></i>Back to Jobs</a>
 
     <div @class(['container'])>
+
+        {{-- Title --}}
+        <h2 @class(['mb-5'])>
+            Application Form - <span @style(['color: #213A5C;'])>{{ $job->job_title }}</span>
+        </h2>
+
+        {{-- Success --}}
+        <x-alert-success />
+
+    
         {{-- Form --}}
         <form wire:submit.prevent="submitApplication">
             <div @class(['row'])>
@@ -139,7 +144,8 @@
                             wire:model="agreedToTerms"
                         >
                         <label class="form-check-label" for="agreed-to-terms">
-                            I agree to the <a href="#" class="text-decoration-underline">terms and conditions</a>.
+                            I agree to the 
+                            <a href="#" class="text-decoration-underline" data-bs-toggle="modal" data-bs-target="#privacyModal">terms and conditions</a>.
                         </label>
                         @error('agreedToTerms') <p class="text-danger ">{{ $message }}</p> @enderror
                     </div>
@@ -149,8 +155,30 @@
                 <div @class(['text-end'])>
                     <x-button-primary type="submit">Submit</x-button-primary>
                 </div>
-
             </div>
         </form>
     </div>
+
+    <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="privacyModalLabel">Privacy Statement</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                    At Jetlouge Travel, we are dedicated to protecting the privacy and personal data of all individuals who engage with our travel and tour recruitment services. When you apply or register with us, we collect only the necessary information such as your name, contact details, work history, and relevant travel documents to match you with suitable travel industry roles and experiences. All personal data is treated as strictly confidential and used exclusively for recruitment, placement, and coordination purposes within the travel and tourism sector.
+                    </p>
+                    <p>
+                    We do not share your information with third parties without your explicit consent, except when required by law or essential for processing your application with trusted partners. Jetlouge Travel uses secure systems and follows industry best practices to ensure your information remains protected. By using our services, you agree to the collection and use of your data as described in this statement. If you wish to access, update, or request deletion of your personal information, please reach out to our privacy team at any time.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
